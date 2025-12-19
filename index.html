@@ -3,253 +3,452 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Portfolio | Développeur & Créatif</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Bolanidji Lazare GNAHOUAME | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* --- Variables et Reset --- */
-:root {
-    --primary-color: #0ef;       /* Cyan néon */
-    --bg-color: #1f242d;         /* Fond sombre élégant */
-    --second-bg-color: #323946;  /* Fond secondaire */
-    --text-color: #fff;
-    --main-font: 'Poppins', sans-serif;
-}
+        :root {
+            --primary-color: #0ef;
+            --bg-color: #1f242d;
+            --second-bg-color: #323946;
+            --text-color: #fff;
+            --main-font: 'Poppins', sans-serif;
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    border: none;
-    outline: none;
-    scroll-behavior: smooth;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            scroll-behavior: smooth;
+        }
 
-body {
-    background: var(--bg-color);
-    color: var(--text-color);
-    font-family: var(--main-font);
-}
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--main-font);
+        }
 
-/* --- Navigation --- */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 1.5rem 9%;
-    background: rgba(31, 36, 45, 0.9); /* Effet verre */
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-}
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 9%;
+            background: rgba(31, 36, 45, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
 
-.logo {
-    font-size: 1.7rem;
-    font-weight: 700;
-    color: var(--text-color);
-    cursor: pointer;
-}
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: var(--text-color);
+            cursor: pointer;
+        }
 
-.logo span { color: var(--primary-color); }
+        .logo span { color: var(--primary-color); }
 
-.nav-links { display: flex; list-style: none; }
-.nav-links li { margin-left: 3rem; }
-.nav-links a {
-    font-size: 1.1rem;
-    color: var(--text-color);
-    font-weight: 500;
-    transition: .3s;
-}
-.nav-links a:hover { color: var(--primary-color); }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
 
-/* --- Hero Section --- */
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 0 9%;
-    background: var(--bg-color);
-}
+        .nav-links li { margin-left: 3rem; }
 
-.hero-content h3 { font-size: 2rem; font-weight: 700; }
-.hero-content h1 { font-size: 3.5rem; font-weight: 700; margin: 10px 0; line-height: 1.2;}
-.hero-content p { font-size: 1rem; margin: 20px 0 40px; max-width: 600px;}
-.hero-content span { color: var(--primary-color); }
+        .nav-links a {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: .3s;
+            position: relative;
+        }
 
-.btn {
-    display: inline-block;
-    padding: 12px 28px;
-    background: var(--primary-color);
-    border-radius: 40px;
-    color: var(--bg-color);
-    font-weight: 600;
-    letter-spacing: 1px;
-    transition: .3s;
-    box-shadow: 0 0 10px var(--primary-color);
-}
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s;
+        }
 
-.btn:hover { box-shadow: none; }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
 
-.socials a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    background: transparent;
-    border: 2px solid var(--primary-color);
-    border-radius: 50%;
-    font-size: 20px;
-    color: var(--primary-color);
-    margin: 30px 15px 30px 0;
-    transition: .5s;
-}
+        .nav-links a:hover { color: var(--primary-color); }
 
-.socials a:hover {
-    background: var(--primary-color);
-    color: var(--bg-color);
-    box-shadow: 0 0 15px var(--primary-color);
-}
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 9%;
+            background: var(--bg-color);
+        }
 
-/* --- Sections Communes --- */
-.section { padding: 6rem 9% 2rem; }
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-}
+        .hero-content h3 { 
+            font-size: 2rem; 
+            font-weight: 700;
+            opacity: 0;
+            animation: slideTop 1s ease forwards;
+        }
 
-/* --- À Propos --- */
-.about-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4rem;
-    background: var(--second-bg-color);
-    padding: 3rem;
-    border-radius: 20px;
-}
+        .hero-content h1 { 
+            font-size: 3.5rem; 
+            font-weight: 700; 
+            margin: 10px 0; 
+            line-height: 1.2;
+            opacity: 0;
+            animation: slideTop 1s ease forwards 0.3s;
+        }
 
-.about-img img {
-    width: 25vw;
-    border-radius: 50%;
-    border: .5rem solid var(--primary-color);
-}
+        .hero-content h3.role {
+            font-size: 1.8rem;
+            opacity: 0;
+            animation: slideTop 1s ease forwards 0.6s;
+        }
 
-.skill-tag {
-    display: inline-block;
-    margin: 5px;
-    padding: 8px 15px;
-    background: var(--bg-color);
-    border-radius: 5px;
-    color: var(--primary-color);
-    font-size: 0.9rem;
-    border: 1px solid var(--primary-color);
-}
+        .hero-content p { 
+            font-size: 1.1rem; 
+            margin: 20px 0 40px; 
+            max-width: 650px;
+            line-height: 1.6;
+            opacity: 0;
+            animation: slideTop 1s ease forwards 0.9s;
+        }
 
-/* --- Projets (Grid) --- */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
+        .hero-content span { color: var(--primary-color); }
 
-.project-card {
-    background: var(--second-bg-color);
-    border-radius: 20px;
-    overflow: hidden;
-    transition: 0.5s;
-    border: 1px solid transparent;
-}
+        @keyframes slideTop {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-.project-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--primary-color);
-}
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--primary-color);
+            border-radius: 40px;
+            color: var(--bg-color);
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: .3s;
+            box-shadow: 0 0 10px var(--primary-color);
+        }
 
-.card-image img { width: 100%; height: 200px; object-fit: cover; }
-.card-info { padding: 20px; }
-.card-info h3 { font-size: 1.5rem; margin-bottom: 10px; }
-.btn-sm {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 8px 20px;
-    background: transparent;
-    border: 2px solid var(--primary-color);
-    color: var(--primary-color);
-    border-radius: 20px;
-    font-size: 0.9rem;
-    transition: 0.3s;
-}
-.btn-sm:hover { background: var(--primary-color); color: var(--bg-color); }
+        .btn:hover { 
+            box-shadow: 0 0 20px var(--primary-color);
+            transform: scale(1.05);
+        }
 
-/* --- Contact --- */
-.contact-container {
-    max-width: 700px;
-    margin: 0 auto;
-}
-.contact-form input, .contact-form textarea {
-    width: 100%;
-    padding: 1.5rem;
-    font-size: 1rem;
-    color: var(--text-color);
-    background: var(--second-bg-color);
-    border-radius: .8rem;
-    margin: .7rem 0;
-}
-.contact-form button { margin-top: 2rem; cursor: pointer; }
+        .socials {
+            margin-top: 30px;
+        }
 
-/* --- Footer --- */
-footer {
-    padding: 2rem 9%;
-    text-align: center;
-    background: var(--second-bg-color);
-    margin-top: 2rem;
-}
+        .socials a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            font-size: 20px;
+            color: var(--primary-color);
+            margin-right: 15px;
+            transition: .5s;
+        }
 
-/* --- Mobile Responsiveness --- */
-@media (max-width: 768px) {
-    .navbar { padding: 1rem 3%; }
-    .hero { flex-direction: column; text-align: center; padding-top: 8rem; }
-    .about-container { flex-direction: column; }
-    .about-img img { width: 50vw; }
-    .nav-links { display: none; } /* Pour simplifier, menu burger à implémenter en JS si besoin */
-}
+        .socials a:hover {
+            background: var(--primary-color);
+            color: var(--bg-color);
+            box-shadow: 0 0 15px var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .section { 
+            padding: 6rem 9% 2rem; 
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+
+        .about-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+            background: var(--second-bg-color);
+            padding: 3rem;
+            border-radius: 20px;
+        }
+
+        .about-img img {
+            width: 25vw;
+            border-radius: 50%;
+            border: .5rem solid var(--primary-color);
+            box-shadow: 0 0 25px var(--primary-color);
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .skills {
+            margin-top: 2rem;
+        }
+
+        .skills h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .skill-tag {
+            display: inline-block;
+            margin: 5px;
+            padding: 8px 15px;
+            background: var(--bg-color);
+            border-radius: 5px;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            border: 1px solid var(--primary-color);
+            transition: 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary-color);
+            color: var(--bg-color);
+            transform: translateY(-3px);
+        }
+
+        .learning-tag {
+            background: transparent;
+            border: 1px dashed var(--primary-color);
+            color: var(--text-color);
+        }
+
+        .learning-tag:hover {
+            background: var(--primary-color);
+            color: var(--bg-color);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--second-bg-color);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.5s;
+            border: 1px solid transparent;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(14, 255, 255, 0.3);
+        }
+
+        .card-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-image img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .project-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+
+        .card-info { padding: 25px; }
+
+        .card-info h3 { 
+            font-size: 1.5rem; 
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .card-info p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .project-tags {
+            margin: 10px 0;
+        }
+
+        .project-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: var(--bg-color);
+            border-radius: 3px;
+            font-size: 0.75rem;
+            margin-right: 5px;
+            margin-top: 5px;
+            color: var(--primary-color);
+        }
+
+        .btn-sm {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 20px;
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .btn-sm:hover { 
+            background: var(--primary-color); 
+            color: var(--bg-color); 
+        }
+
+        .contact-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 1.5rem;
+            font-size: 1rem;
+            color: var(--text-color);
+            background: var(--second-bg-color);
+            border-radius: .8rem;
+            margin: .7rem 0;
+            border: 2px solid transparent;
+            transition: 0.3s;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: var(--primary-color);
+        }
+
+        .contact-form button { 
+            margin-top: 2rem; 
+            cursor: pointer;
+            width: 100%;
+        }
+
+        footer {
+            padding: 2rem 9%;
+            text-align: center;
+            background: var(--second-bg-color);
+            margin-top: 2rem;
+        }
+
+        .education-card, .writing-card {
+            background: var(--second-bg-color);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .education-card h3, .writing-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .education-card ul, .writing-card ul {
+            list-style-position: inside;
+            line-height: 2;
+        }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 1rem 5%; }
+            .section { padding: 4rem 5%; }
+            .hero { padding: 8rem 5% 4rem; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-content h3 { font-size: 1.5rem; }
+            .about-container { flex-direction: column; }
+            .about-img img { width: 60vw; }
+            .nav-links { display: none; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+
+        .project-card, .about-container, .contact-form, .education-card, .writing-card {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-in-out;
+        }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="logo">Portfo<span>lio.</span></div>
+        <div class="logo">BL<span>G.</span></div>
         <ul class="nav-links">
             <li><a href="#home">Accueil</a></li>
             <li><a href="#about">À propos</a></li>
+            <li><a href="#education">Formation</a></li>
             <li><a href="#projects">Projets</a></li>
+            <li><a href="#writing">Écriture</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-        <div class="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
-        </div>
     </nav>
 
     <section id="home" class="hero">
         <div class="hero-content">
             <h3>Bonjour, je suis</h3>
-            <h1>Alexandre Dupont</h1>
-            <h3>Je suis <span class="typewriter">Développeur Web</span></h3>
-            <p>Je conçois des expériences numériques modernes, performantes et esthétiques.</p>
-            <a href="#projects" class="btn">Voir mes travaux</a>
+            <h1>Bolanidji Lazare <span>GNAHOUAME</span></h1>
+            <h3 class="role">Étudiant Ingénieur | <span>Développeur</span> & Créateur</h3>
+            <p>Étudiant ingénieur en formation à l'ESEO, je développe des compétences solides en programmation, conception d'applications web et résolution de problèmes algorithmiques. Passionné par le code, l'entrepreneuriat et l'écriture, je m'investis dans des projets techniques et créatifs qui mêlent innovation et réflexion.</p>
+            <a href="#projects" class="btn">Découvrir mes projets</a>
             <div class="socials">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
     </section>
@@ -258,59 +457,132 @@ footer {
         <h2 class="section-title">À Propos</h2>
         <div class="about-container">
             <div class="about-img">
-                <img src="https://source.unsplash.com/random/400x400/?person,tech" alt="Profil">
+                <img src="https://source.unsplash.com/random/400x400/?tech,student" alt="Profil">
             </div>
             <div class="about-text">
-                <h3>Créateur de solutions digitales</h3>
-                <p>Passionné par le code et le design, j'aide les entreprises à transformer leurs idées en réalité. Avec une attention particulière aux détails et à l'expérience utilisateur, je crée des sites qui marquent les esprits.</p>
+                <h3>Développeur en formation & entrepreneur dans l'âme</h3>
+                <p>Actuellement en formation d'ingénieur à l'ESEO, je développe des compétences en programmation web et algorithmique. Curieux, persévérant et animé par une forte capacité d'adaptation, je m'investis aussi bien dans des projets techniques que créatifs, mêlant informatique, réflexion stratégique et écriture.</p>
+                <p>Je m'intéresse particulièrement au développement web, à l'automatisation par le code et à la conception de projets numériques à impact, tout en nourrissant une réflexion plus large sur les enjeux sociaux, culturels et économiques, notamment en Afrique.</p>
                 
                 <div class="skills">
+                    <h4>💻 Technologies maîtrisées</h4>
                     <span class="skill-tag">HTML5</span>
                     <span class="skill-tag">CSS3</span>
                     <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">React</span>
-                    <span class="skill-tag">Node.js</span>
-                    <span class="skill-tag">UI/UX Design</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">MySQL</span>
+                    
+                    <h4 style="margin-top: 1.5rem;">📘 En cours d'apprentissage</h4>
+                    <span class="skill-tag learning-tag">PHP</span>
+                    <span class="skill-tag learning-tag">C</span>
+                    <span class="skill-tag learning-tag">C++</span>
                 </div>
             </div>
         </div>
     </section>
 
-    
+    <section id="education" class="section">
+        <h2 class="section-title">Formation</h2>
+        <div class="education-card">
+            <h3>🎓 ESEO - École Supérieure d'Électronique de l'Ouest</h3>
+            <p><strong>Classe préparatoire intégrée - Cycle ingénieur</strong></p>
+            <p>📍 Angers, France</p>
+            <ul>
+                <li>Formation scientifique et technique exigeante</li>
+                <li>Algorithmique, programmation, mathématiques appliquées</li>
+                <li>Développement de projets informatiques</li>
+                <li>Travail en équipe et autonomie</li>
+            </ul>
+        </div>
+    </section>
 
     <section id="projects" class="section">
         <h2 class="section-title">Mes Projets</h2>
         <div class="projects-grid">
             <div class="project-card">
                 <div class="card-image">
-                    <img src="https://source.unsplash.com/random/600x400/?website,code" alt="Projet 1">
+                    <img src="https://source.unsplash.com/random/600x400/?php,login" alt="Projet PHP">
                 </div>
                 <div class="card-info">
-                    <h3>E-Commerce App</h3>
-                    <p>Une application complète de vente en ligne avec panier et paiement.</p>
-                    <a href="#" class="btn-sm">Voir le code</a>
+                    <h3>🔐 Application PHP - Authentification</h3>
+                    <p>Système de connexion et d'inscription sécurisé avec gestion utilisateurs. Projet en cours d'apprentissage pour approfondir le backend PHP et l'interaction avec MySQL.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">PHP</span>
+                        <span class="project-tag">MySQL</span>
+                        <span class="project-tag">Backend</span>
+                    </div>
+                    <a href="#" class="btn-sm">En savoir plus</a>
                 </div>
             </div>
+
             <div class="project-card">
                 <div class="card-image">
-                    <img src="https://source.unsplash.com/random/600x400/?app,mobile" alt="Projet 2">
+                    <img src="https://source.unsplash.com/random/600x400/?quiz,ai" alt="Quiz IA">
                 </div>
                 <div class="card-info">
-                    <h3>Dashboard Analytics</h3>
-                    <p>Tableau de bord interactif pour visualiser des données complexes.</p>
-                    <a href="#" class="btn-sm">Voir le code</a>
+                    <h3>🎯 Quiz Personnalisé avec IA</h3>
+                    <p>Application web interactive de type "Quel genre de X es-tu ?". Analyse intelligente des réponses et génération de résultats personnalisés et partageables.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">JavaScript</span>
+                        <span class="project-tag">IA</span>
+                        <span class="project-tag">Web</span>
+                    </div>
+                    <a href="#" class="btn-sm">En savoir plus</a>
                 </div>
             </div>
+
             <div class="project-card">
                 <div class="card-image">
-                    <img src="https://source.unsplash.com/random/600x400/?design,art" alt="Projet 3">
+                    <img src="https://source.unsplash.com/random/600x400/?python,data" alt="Projet Python">
                 </div>
                 <div class="card-info">
-                    <h3>Portfolio Créatif</h3>
-                    <p>Site vitrine pour une agence de design minimaliste.</p>
-                    <a href="#" class="btn-sm">Voir le code</a>
+                    <h3>🐍 Gestion d'Étudiants - Python</h3>
+                    <p>Application de gestion utilisant des structures de données avancées (dictionnaires). Fonctionnalités : création, inscription, filtrage et manipulation de données étudiantes.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Dictionnaires</span>
+                        <span class="project-tag">Algorithmique</span>
+                    </div>
+                    <a href="#" class="btn-sm">En savoir plus</a>
                 </div>
             </div>
+
+            <div class="project-card">
+                <div class="card-image">
+                    <img src="https://source.unsplash.com/random/600x400/?gas,station,business" alt="Projet entrepreneurial">
+                </div>
+                <div class="card-info">
+                    <h3>⛽ Projet Stations-Service (Afrique de l'Ouest)</h3>
+                    <p>Projet entrepreneurial d'ouverture de stations-service au Togo (Mô, Kovié) avec vision d'expansion régionale. Étude stratégique, analyse de coûts et implantation.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Entrepreneuriat</span>
+                        <span class="project-tag">Business Plan</span>
+                        <span class="project-tag">Afrique</span>
+                    </div>
+                    <a href="#" class="btn-sm">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="writing" class="section" style="background: var(--second-bg-color);">
+        <h2 class="section-title">Création & Écriture</h2>
+        <div class="writing-card">
+            <h3>📖 Romans & Création littéraire</h3>
+            <p>Passionné d'écriture, je développe plusieurs projets romanesques qui explorent les thématiques de l'identité, de l'histoire africaine et des enjeux contemporains.</p>
+            
+            <h4 style="color: var(--primary-color); margin-top: 1.5rem;">Projet principal : Frontières Invisibles</h4>
+            <p>Roman en 20 chapitres explorant les destins croisés de migrants, mêlant enjeux humains, écologiques et sociaux. Une œuvre qui interroge les frontières visibles et invisibles de notre monde.</p>
+            
+            <h4 style="color: var(--primary-color); margin-top: 1.5rem;">Thématiques explorées :</h4>
+            <ul>
+                <li>L'Afrique précoloniale et post-indépendance</li>
+                <li>La mythologie africaine et l'empire mandingue</li>
+                <li>Les traditions et prophéties du peuple Agnaga (Pagala - Blitta)</li>
+                <li>Les migrations et identités contemporaines</li>
+            </ul>
+            
+            <p style="margin-top: 1rem;"><em>Ancrage culturel fort et sensibilité aux enjeux historiques et sociaux.</em></p>
         </div>
     </section>
 
@@ -321,56 +593,43 @@ footer {
                 <input type="text" placeholder="Votre Nom" required>
                 <input type="email" placeholder="Votre Email" required>
                 <textarea rows="5" placeholder="Votre Message" required></textarea>
-                <button type="submit" class="btn">Envoyer</button>
+                <button type="submit" class="btn">Envoyer le message</button>
             </form>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 Alexandre Dupont. Tous droits réservés.</p>
+        <p>&copy; 2024 Bolanidji Lazare GNAHOUAME. Tous droits réservés.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">📍 Angers, France | Étudiant Ingénieur ESEO</p>
     </footer>
 
     <script>
-             // Animation simple d'apparition au scroll (Scroll Reveal)
-const sr = {
-    distance: '60px',
-    duration: 2500,
-    delay: 400,
-    reset: true
-};
+        window.addEventListener('scroll', reveal);
 
-// Fonction simplifiée pour simuler l'animation sans librairie externe
-window.addEventListener('scroll', reveal);
+        function reveal() {
+            var reveals = document.querySelectorAll('.project-card, .about-container, .contact-form, .education-card, .writing-card');
 
-function reveal() {
-    var reveals = document.querySelectorAll('.project-card, .about-container, .contact-form');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowheight = window.innerHeight;
+                var revealtop = reveals[i].getBoundingClientRect().top;
+                var revealpoint = 150;
 
-    for (var i = 0; i < reveals.length; i++) {
-        var windowheight = window.innerHeight;
-        var revealtop = reveals[i].getBoundingClientRect().top;
-        var revealpoint = 150;
-
-        if (revealtop < windowheight - revealpoint) {
-            reveals[i].style.opacity = '1';
-            reveals[i].style.transform = 'translateY(0)';
-        } else {
-            // Optionnel : remet l'élément caché si on remonte
-            // reveals[i].style.opacity = '0';
-            // reveals[i].style.transform = 'translateY(50px)';
+                if (revealtop < windowheight - revealpoint) {
+                    reveals[i].style.opacity = '1';
+                    reveals[i].style.transform = 'translateY(0)';
+                }
+            }
         }
-    }
-}
 
-// Initialisation CSS pour l'animation JS
-const style = document.createElement('style');
-style.innerHTML = `
-  .project-card, .about-container, .contact-form {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 1s ease-in-out;
-  }
-`;
-document.head.appendChild(style); 
+        // Smooth scroll pour les liens de navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 </body>
 </html>
