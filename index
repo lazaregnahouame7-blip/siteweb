@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio | Développeur & Créatif</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Variables et Reset --- */
+:root {
+    --primary-color: #0ef;       /* Cyan néon */
+    --bg-color: #1f242d;         /* Fond sombre élégant */
+    --second-bg-color: #323946;  /* Fond secondaire */
+    --text-color: #fff;
+    --main-font: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--main-font);
+}
+
+/* --- Navigation --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 9%;
+    background: rgba(31, 36, 45, 0.9); /* Effet verre */
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.logo span { color: var(--primary-color); }
+
+.nav-links { display: flex; list-style: none; }
+.nav-links li { margin-left: 3rem; }
+.nav-links a {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: .3s;
+}
+.nav-links a:hover { color: var(--primary-color); }
+
+/* --- Hero Section --- */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 9%;
+    background: var(--bg-color);
+}
+
+.hero-content h3 { font-size: 2rem; font-weight: 700; }
+.hero-content h1 { font-size: 3.5rem; font-weight: 700; margin: 10px 0; line-height: 1.2;}
+.hero-content p { font-size: 1rem; margin: 20px 0 40px; max-width: 600px;}
+.hero-content span { color: var(--primary-color); }
+
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--primary-color);
+    border-radius: 40px;
+    color: var(--bg-color);
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: .3s;
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+.btn:hover { box-shadow: none; }
+
+.socials a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    font-size: 20px;
+    color: var(--primary-color);
+    margin: 30px 15px 30px 0;
+    transition: .5s;
+}
+
+.socials a:hover {
+    background: var(--primary-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+/* --- Sections Communes --- */
+.section { padding: 6rem 9% 2rem; }
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+/* --- À Propos --- */
+.about-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    background: var(--second-bg-color);
+    padding: 3rem;
+    border-radius: 20px;
+}
+
+.about-img img {
+    width: 25vw;
+    border-radius: 50%;
+    border: .5rem solid var(--primary-color);
+}
+
+.skill-tag {
+    display: inline-block;
+    margin: 5px;
+    padding: 8px 15px;
+    background: var(--bg-color);
+    border-radius: 5px;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    border: 1px solid var(--primary-color);
+}
+
+/* --- Projets (Grid) --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: var(--second-bg-color);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.5s;
+    border: 1px solid transparent;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+}
+
+.card-image img { width: 100%; height: 200px; object-fit: cover; }
+.card-info { padding: 20px; }
+.card-info h3 { font-size: 1.5rem; margin-bottom: 10px; }
+.btn-sm {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 20px;
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+.btn-sm:hover { background: var(--primary-color); color: var(--bg-color); }
+
+/* --- Contact --- */
+.contact-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1rem;
+    color: var(--text-color);
+    background: var(--second-bg-color);
+    border-radius: .8rem;
+    margin: .7rem 0;
+}
+.contact-form button { margin-top: 2rem; cursor: pointer; }
+
+/* --- Footer --- */
+footer {
+    padding: 2rem 9%;
+    text-align: center;
+    background: var(--second-bg-color);
+    margin-top: 2rem;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .navbar { padding: 1rem 3%; }
+    .hero { flex-direction: column; text-align: center; padding-top: 8rem; }
+    .about-container { flex-direction: column; }
+    .about-img img { width: 50vw; }
+    .nav-links { display: none; } /* Pour simplifier, menu burger à implémenter en JS si besoin */
+}
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Portfo<span>lio.</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Accueil</a></li>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h3>Bonjour, je suis</h3>
+            <h1>Alexandre Dupont</h1>
+            <h3>Je suis <span class="typewriter">Développeur Web</span></h3>
+            <p>Je conçois des expériences numériques modernes, performantes et esthétiques.</p>
+            <a href="#projects" class="btn">Voir mes travaux</a>
+            <div class="socials">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2 class="section-title">À Propos</h2>
+        <div class="about-container">
+            <div class="about-img">
+                <img src="https://source.unsplash.com/random/400x400/?person,tech" alt="Profil">
+            </div>
+            <div class="about-text">
+                <h3>Créateur de solutions digitales</h3>
+                <p>Passionné par le code et le design, j'aide les entreprises à transformer leurs idées en réalité. Avec une attention particulière aux détails et à l'expérience utilisateur, je crée des sites qui marquent les esprits.</p>
+                
+                <div class="skills">
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">UI/UX Design</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <section id="projects" class="section">
+        <h2 class="section-title">Mes Projets</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="card-image">
+                    <img src="https://source.unsplash.com/random/600x400/?website,code" alt="Projet 1">
+                </div>
+                <div class="card-info">
+                    <h3>E-Commerce App</h3>
+                    <p>Une application complète de vente en ligne avec panier et paiement.</p>
+                    <a href="#" class="btn-sm">Voir le code</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image">
+                    <img src="https://source.unsplash.com/random/600x400/?app,mobile" alt="Projet 2">
+                </div>
+                <div class="card-info">
+                    <h3>Dashboard Analytics</h3>
+                    <p>Tableau de bord interactif pour visualiser des données complexes.</p>
+                    <a href="#" class="btn-sm">Voir le code</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image">
+                    <img src="https://source.unsplash.com/random/600x400/?design,art" alt="Projet 3">
+                </div>
+                <div class="card-info">
+                    <h3>Portfolio Créatif</h3>
+                    <p>Site vitrine pour une agence de design minimaliste.</p>
+                    <a href="#" class="btn-sm">Voir le code</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2 class="section-title">Me Contacter</h2>
+        <div class="contact-container">
+            <form class="contact-form">
+                <input type="text" placeholder="Votre Nom" required>
+                <input type="email" placeholder="Votre Email" required>
+                <textarea rows="5" placeholder="Votre Message" required></textarea>
+                <button type="submit" class="btn">Envoyer</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Alexandre Dupont. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+             // Animation simple d'apparition au scroll (Scroll Reveal)
+const sr = {
+    distance: '60px',
+    duration: 2500,
+    delay: 400,
+    reset: true
+};
+
+// Fonction simplifiée pour simuler l'animation sans librairie externe
+window.addEventListener('scroll', reveal);
+
+function reveal() {
+    var reveals = document.querySelectorAll('.project-card, .about-container, .contact-form');
+
+    for (var i = 0; i < reveals.length; i++) {
+        var windowheight = window.innerHeight;
+        var revealtop = reveals[i].getBoundingClientRect().top;
+        var revealpoint = 150;
+
+        if (revealtop < windowheight - revealpoint) {
+            reveals[i].style.opacity = '1';
+            reveals[i].style.transform = 'translateY(0)';
+        } else {
+            // Optionnel : remet l'élément caché si on remonte
+            // reveals[i].style.opacity = '0';
+            // reveals[i].style.transform = 'translateY(50px)';
+        }
+    }
+}
+
+// Initialisation CSS pour l'animation JS
+const style = document.createElement('style');
+style.innerHTML = `
+  .project-card, .about-container, .contact-form {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease-in-out;
+  }
+`;
+document.head.appendChild(style); 
+    </script>
+</body>
+</html>
